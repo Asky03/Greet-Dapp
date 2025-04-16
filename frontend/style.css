@@ -1,9 +1,64 @@
 body {
-    font-family: Arial;
-    margin: 30px;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f4f8;
+    color: #333;
+    padding: 40px;
+    max-width: 600px;
+    margin: auto;
   }
+  
+  h1 {
+    font-size: 2rem;
+    color: #3b82f6;
+  }
+  
+  #currentGreeting {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #111;
+  }
+  
   input {
-    margin-right: 10px;
-    padding: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background: #3b82f6;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  button:hover {
+    background: #2563eb;
+  }
+  
+  .suggestions {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .suggestions span {
+    background-color: #e0e7ff;
+    padding: 6px 10px;
+    margin: 3px;
+    display: inline-block;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .suggestions span:hover {
+    background-color: #c7d2fe;
   }
   

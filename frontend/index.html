@@ -8,14 +8,35 @@
 </head>
 <body>
   <h1>👋 Greeter DApp</h1>
+
+  <button onclick="connectWallet()" style="background: black; color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;">🔌 Connect Wallet</button>
   
   <p id="currentGreeting">Loading greeting...</p>
 
   <input type="text" id="newGreeting" placeholder="Enter new greeting" />
   <button onclick="updateGreeting()">Set Greeting</button>
-  <button onclick="connect()">🔌 Connect Wallet</button>
 
+  <div class="suggestions">
+    <p>💡 Suggested greetings:</p>
+    <span onclick="fillSuggestion(this)">Hello from Web3!</span>
+    <span onclick="fillSuggestion(this)">Namaste 🙏</span>
+    <span onclick="fillSuggestion(this)">Welcome, Human! 👽</span>
+  </div>
 
+  <script>
+    async function connectWallet() {
+      if (window.ethereum) {
+        try {
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+          alert('Wallet connected!');
+        } catch (error) {
+          alert('Wallet connection failed.');
+        }
+      } else {
+        alert('MetaMask not detected.');
+      }
+    }
+  </script>
   <script src="app.js"></script>
 </body>
 </html>

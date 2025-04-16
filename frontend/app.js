@@ -6,11 +6,15 @@ const abi = [
 
 async function getGreeting() {
   if (typeof window.ethereum !== "undefined") {
-    const provider = new ethers.providers.Web3Provider(window.ethereum); // ✅ v5 syntax
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
     const contract = new ethers.Contract(contractAddress, abi, provider);
     const greeting = await contract.greet();
     document.getElementById("currentGreeting").innerText = `📢 ${greeting}`;
   }
+}
+
+function fillSuggestion(el) {
+  document.getElementById("newGreeting").value = el.innerText;
 }
 
 async function updateGreeting() {
@@ -18,13 +22,26 @@ async function updateGreeting() {
   if (!newGreeting) return alert("Please enter a greeting");
 
   if (typeof window.ethereum !== "undefined") {
-    const provider = new ethers.providers.Web3Provider(window.ethereum); // ✅
-    await provider.send("eth_requestAccounts", []); // 👈 Ask for wallet connect
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send("eth_requestAccounts", []);
     const signer = provider.getSigner();
     const contract = new ethers.Contract(contractAddress, abi, signer);
     const tx = await contract.setGreeting(newGreeting);
     await tx.wait();
-    getGreeting(); // Refresh greeting
+    getGreeting();
+  }
+}
+
+async function connectWallet() {
+  if (window.ethereum) {
+    try {
+      await window.ethereum.request({ method: 'eth_requestAccounts' });
+      alert('Wallet connected!');
+    } catch (error) {
+      alert('Wallet connection failed.');
+    }
+  } else {
+    alert('MetaMask not detected.');
   }
 }
 
