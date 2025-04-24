@@ -3,26 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Greeter DApp</title>
+
   <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+<script src="app.js" defer></script>
+
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>👋 Greeter DApp</h1>
 
-  <button onclick="connectWallet()" style="background: black; color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;">🔌 Connect Wallet</button>
-  
+  <!-- Wallet Connect Button -->
+  <button onclick="connectWallet()" style="background: black; color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;">
+    🔌 Connect Wallet
+  </button>
+
+  <!-- Greeting Output -->
   <p id="currentGreeting">Loading greeting...</p>
 
+  <!-- Input for New Greeting -->
   <input type="text" id="newGreeting" placeholder="Enter new greeting" />
   <button onclick="updateGreeting()">Set Greeting</button>
 
+  <!-- Suggested Greetings -->
   <div class="suggestions">
     <p>💡 Suggested greetings:</p>
-    <span onclick="fillSuggestion(this)">Hello from Web3!</span>
-    <span onclick="fillSuggestion(this)">Namaste 🙏</span>
-    <span onclick="fillSuggestion(this)">Welcome, Human! 👽</span>
+    <span onclick="fillSuggestion(this)">Hola from Web3!</span>
+    <span onclick="fillSuggestion(this)">Suprabhat🙏</span>
+    <span onclick="fillSuggestion(this)">Welcome,AI's Humans 👽</span>
   </div>
 
+  <!-- Greeting Chain History -->
+  <h3>🧾 Greeting Chain History</h3>
+<div id="log"></div>
+
+
+  <!-- Wallet Connect Script -->
   <script>
     async function connectWallet() {
       if (window.ethereum) {
@@ -37,6 +53,5 @@
       }
     }
   </script>
-  <script src="app.js"></script>
 </body>
 </html>
