@@ -9,6 +9,9 @@ A simple decentralized application (DApp) built using Solidity, Hardhat, Ethers.
 🔗 [Frontend on Vercel](https://greeter-dapp-ashu.vercel.app)
 
 > ⚠️ Make sure your MetaMask is connected to **localhost:8545** and unlocked with a Hardhat test account.
+> ⚠️ You can create a new Hardhat test account using `npx hardhat
+account` command.
+
 
 ---
 
